@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  backend:
+    environment:
+      DEBUG: "True"
+    volumes:
+      - ./backend:/app
+      - ./backend/uploads:/app/uploads
+
+  celery_worker:
+    volumes:
+      - ./backend:/app
+      - ./backend/uploads:/app/uploads
+
+  celery_beat:
+    volumes:
+      - ./backend:/app
